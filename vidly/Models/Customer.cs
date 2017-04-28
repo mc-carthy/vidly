@@ -17,6 +17,9 @@ namespace vidly.Models
 
         public MembershipType MembershipType { get; set; }
 
+        // This is implicitly required as the default setting does not return a value
+        // and so can not be converted to a byte
+        [Required]
         [Display(Name = "Membership Type")]
         public byte MembershipTypeId { get; set; }
 
