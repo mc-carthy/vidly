@@ -24,6 +24,8 @@ namespace vidly.Models
         public byte MembershipTypeId { get; set; }
 
         [Display(Name = "Date of Birth")]
+        // As this is a custom validation, it will not be validated client-side, only server-side
+        // Unless custom jquery is written to perform the validation
         [Min18YearsIfAMember]
         public DateTime? BirthDate { get; set; }
     }
