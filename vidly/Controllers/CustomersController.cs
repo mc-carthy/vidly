@@ -23,6 +23,7 @@ namespace vidly.Controllers
             _context.Dispose();
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult New ()
         {
             var membershipTypes = _context.MembershipTypes.ToList();
@@ -86,6 +87,7 @@ namespace vidly.Controllers
             return View(customer);
         }
 
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Edit(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);
