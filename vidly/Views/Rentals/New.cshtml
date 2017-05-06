@@ -33,7 +33,7 @@
     <script>
         $(document).ready(function () {
             var vm = {
-                movieIds: []
+                MovieIds: []
             };
 
             var customers = new Bloodhound({
@@ -53,7 +53,7 @@
                 display: 'name',
                 source: customers
             }).on("typeahead:select", function (e, customer) {
-                vm.customerId = customer.id;
+                vm.CustomerId = customer.id;
                 });
 
             var movies = new Bloodhound({
@@ -75,14 +75,14 @@
             }).on("typeahead:select", function (e, movie) {
                 $("#movies").append("<li class='list-group-item'>" + movie.name + "</li>");
                 $("#movie").typeahead("val", "");
-                vm.moviesIds.push(movie.id);
+                vm.MovieIds.push(movie.id);
             });
 
             $("#newRental").submit(function (e) {
                 e.preventDefault();
 
                 $.ajax({
-                    url: "/api/newRentals",
+                    url: "/api/newrentals",
                     method: "post",
                     data: vm
                 })
